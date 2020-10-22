@@ -13,14 +13,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
+        <EditText
+            android:id="@+id/textCalculation"
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:text="TextView" />
 
-        <TextView
-            android:id="@+id/textView"
+        <EditText
+            android:id="@+id/textRezult"
             android:layout_width="match_parent"
             android:layout_height="121dp"
             android:text="TextView" />
