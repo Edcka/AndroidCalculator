@@ -16,8 +16,7 @@
         <EditText
             android:id="@+id/textCalculation"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:text="TextView" />
+            android:layout_height="125dp" />
 
         <EditText
             android:id="@+id/textRezult"

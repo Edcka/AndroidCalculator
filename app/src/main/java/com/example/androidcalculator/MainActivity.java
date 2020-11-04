@@ -1,7 +1,6 @@
 package com.example.androidcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -16,13 +15,12 @@ public class MainActivity extends AppCompatActivity {
             buttonSqr, buttonDiv, buttonMult, buttonPlus, buttonMinus, buttonDot, buttonRez;
 
     EditText textCalculation, textRezult;
-
-
+    Calculator  calculator = new Calculator();
+    float x,y;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         button0 = (Button) findViewById(R.id.button0);
@@ -123,17 +121,123 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Editable temp = textCalculation.getText();
-                if (temp.toString().contains("-")){
-                    temp.delete(0,0);
-                    textCalculation.setText(temp);
-                }
-                else
-                {
-                    temp.append("-",0,0);
-                    textCalculation.setText(temp);
-                }
 
+                if (temp.toString().charAt(0) == ('-')) {
+                    temp.delete(0, 1);
+                    textCalculation.setText(temp);
+                } else {
+                    textCalculation.setText("-" + temp);
+                }
             }
         });
-    }
-}
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textCalculation.setText("");
+                textRezult.setText("");
+                x=0;
+                y=0;
+            }
+        });
+        buttonPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                buttonRez.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        y = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.append(y + "=" + calculator.Addition(x, y));
+                        x = calculator.Addition(x, y);
+                        y = 0;
+                        textCalculation.setText("");
+                    }
+                });
+                    if(!(textRezult.getText().equals(""))){
+                        textRezult.setText(x + "+");
+
+                    }
+
+                    if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                        x = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.setText(x + "+");
+                        textCalculation.setText("");
+                    }
+            }
+        });
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonRez.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        y = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.append(y + "=" + calculator.Subraction(x, y));
+                        x = calculator.Subraction(x, y);
+                        y = 0;
+                        textCalculation.setText("");
+                    }
+                });
+                if(!(textRezult.getText().equals(""))){
+                    textRezult.setText(x + "-");
+
+                }
+
+                if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                    x = Float.parseFloat(textCalculation.getText().toString());
+                    textRezult.setText(x + "-");
+                    textCalculation.setText("");
+                }
+            }
+        });
+        buttonMult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonRez.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        y = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.append(y + "=" + calculator.Multiplication(x, y));
+                        x = calculator.Multiplication(x, y);
+                        y = 0;
+                        textCalculation.setText("");
+                    }
+                });
+                if(!(textRezult.getText().equals(""))){
+                    textRezult.setText(x + "*");
+
+                }
+
+                if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                    x = Float.parseFloat(textCalculation.getText().toString());
+                    textRezult.setText(x + "*");
+                    textCalculation.setText("");
+                }
+            }
+        });
+        buttonDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonRez.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        y = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.append(y + "=" + calculator.Division(x, y));
+                        x = calculator.Division(x, y);
+                        y = 0;
+                        textCalculation.setText("");
+                    }
+                });
+                if(!(textRezult.getText().equals(""))){
+                    textRezult.setText(x + "/");
+
+                }
+
+                if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                    x = Float.parseFloat(textCalculation.getText().toString());
+                    textRezult.setText(x + "/");
+                    textCalculation.setText("");
+                }
+            }
+        });
+    }}

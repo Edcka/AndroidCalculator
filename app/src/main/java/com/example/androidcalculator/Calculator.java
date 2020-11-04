@@ -6,6 +6,7 @@ public class Calculator {
 public float Addition (float x, float y){
     return (x+y);
 }
+public float Subraction (float x, float y){return  (x-y);}
 public float Multiplication(float x, float y){
     return (x*y);
 }
@@ -15,5 +16,4 @@ public float Division (float x, float y){
 public double SqrRoot(double x){
     return Math.sqrt(x);
 }
-
 }
