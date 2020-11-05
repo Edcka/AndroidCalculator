@@ -240,4 +240,32 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        buttonSqr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!(textRezult.getText().equals(""))){
+                    textRezult.setText("V" + x);
+                }
+                if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                    x = Float.parseFloat(textCalculation.getText().toString());
+                    textRezult.setText("V"+calculator.SqrRoot(x));
+                    x = (float) calculator.SqrRoot(x);
+                    textCalculation.setText("");
+                }
+                }
+
+        });
+        buttonDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textCalculation.setText("");
+            }
+        });
+        buttonDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textCalculation.append(".");
+            }
+        });
     }}
