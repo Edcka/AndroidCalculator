@@ -121,13 +121,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Editable temp = textCalculation.getText();
+                if (!(temp.toString().equals(""))) {
 
-                if (temp.toString().charAt(0) == ('-')) {
-                    temp.delete(0, 1);
-                    textCalculation.setText(temp);
-                } else {
-                    textCalculation.setText("-" + temp);
+                    if (temp.toString().charAt(0) == ('-')) {
+                        temp.delete(0, 1);
+                        textCalculation.setText(temp);
+                    } else {
+                        textCalculation.setText("-" + temp);
+                    }
                 }
+               else return;
             }
         });
         buttonClear.setOnClickListener(new View.OnClickListener() {
@@ -142,18 +145,20 @@ public class MainActivity extends AppCompatActivity {
         buttonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 buttonRez.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        y = Float.parseFloat(textCalculation.getText().toString());
-                        textRezult.append(y + "=" + calculator.Addition(x, y));
-                        x = calculator.Addition(x, y);
-                        y = 0;
-                        textCalculation.setText("");
+                        if (!(textCalculation.getText().toString().equals(""))) {
+                            y = Float.parseFloat(textCalculation.getText().toString());
+                            textRezult.append(y + "=" + calculator.Addition(x, y));
+                            x = calculator.Addition(x, y);
+                            y = 0;
+                            textCalculation.setText("");
+                        }else return;
                     }
                 });
-                    if(!(textRezult.getText().equals(""))){
+                if (!(textCalculation.getText().toString().equals(""))) {
+                    if (!(textRezult.getText().equals(""))) {
                         textRezult.setText(x + "+");
 
                     }
@@ -163,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                         textRezult.setText(x + "+");
                         textCalculation.setText("");
                     }
+                }else return;
             }
         });
         buttonMinus.setOnClickListener(new View.OnClickListener() {
@@ -171,23 +177,28 @@ public class MainActivity extends AppCompatActivity {
                 buttonRez.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        y = Float.parseFloat(textCalculation.getText().toString());
-                        textRezult.append(y + "=" + calculator.Subraction(x, y));
-                        x = calculator.Subraction(x, y);
-                        y = 0;
-                        textCalculation.setText("");
+                        if (!(textCalculation.getText().toString().equals(""))) {
+                            y = Float.parseFloat(textCalculation.getText().toString());
+                            textRezult.append(y + "=" + calculator.Subraction(x, y));
+                            x = calculator.Subraction(x, y);
+                            y = 0;
+                            textCalculation.setText("");
+                        } else return;
                     }
                 });
-                if(!(textRezult.getText().equals(""))){
-                    textRezult.setText(x + "-");
 
-                }
+                if (!(textCalculation.getText().toString().equals(""))) {
+                    if (!(textRezult.getText().equals(""))) {
+                        textRezult.setText(x + "-");
 
-                if ((!(textCalculation.getText().equals(""))) && x == 0) {
-                    x = Float.parseFloat(textCalculation.getText().toString());
-                    textRezult.setText(x + "-");
-                    textCalculation.setText("");
-                }
+                    }
+
+                    if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                        x = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.setText(x + "-");
+                        textCalculation.setText("");
+                    }
+                }else return;
             }
         });
         buttonMult.setOnClickListener(new View.OnClickListener() {
@@ -196,63 +207,78 @@ public class MainActivity extends AppCompatActivity {
                 buttonRez.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        y = Float.parseFloat(textCalculation.getText().toString());
-                        textRezult.append(y + "=" + calculator.Multiplication(x, y));
-                        x = calculator.Multiplication(x, y);
-                        y = 0;
-                        textCalculation.setText("");
+                        if (!(textCalculation.getText().toString().equals(""))) {
+                            y = Float.parseFloat(textCalculation.getText().toString());
+                            textRezult.append(y + "=" + calculator.Multiplication(x, y));
+                            x = calculator.Multiplication(x, y);
+                            y = 0;
+                            textCalculation.setText("");
+                        }
+                        else return;
                     }
                 });
-                if(!(textRezult.getText().equals(""))){
-                    textRezult.setText(x + "*");
+                if (!(textCalculation.getText().toString().equals(""))) {
+                    if (!(textRezult.getText().equals(""))) {
+                        textRezult.setText(x + "*");
 
-                }
+                    }
 
-                if ((!(textCalculation.getText().equals(""))) && x == 0) {
-                    x = Float.parseFloat(textCalculation.getText().toString());
-                    textRezult.setText(x + "*");
-                    textCalculation.setText("");
+                    if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                        x = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.setText(x + "*");
+                        textCalculation.setText("");
+                    }
                 }
+                else return;
             }
         });
         buttonDiv.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 buttonRez.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        y = Float.parseFloat(textCalculation.getText().toString());
-                        textRezult.append(y + "=" + calculator.Division(x, y));
-                        x = calculator.Division(x, y);
-                        y = 0;
-                        textCalculation.setText("");
+                        if (!(textCalculation.getText().toString().equals(""))) {
+                            y = Float.parseFloat(textCalculation.getText().toString());
+                            textRezult.append(y + "=" + calculator.Division(x, y));
+                            x = calculator.Division(x, y);
+                            y = 0;
+                            textCalculation.setText("");
+                        } else return;
                     }
                 });
-                if(!(textRezult.getText().equals(""))){
-                    textRezult.setText(x + "/");
+                if (!(textCalculation.getText().toString().equals(""))) {
+                    if (!(textRezult.getText().equals(""))) {
+                        textRezult.setText(x + "/");
 
-                }
+                    }
 
-                if ((!(textCalculation.getText().equals(""))) && x == 0) {
-                    x = Float.parseFloat(textCalculation.getText().toString());
-                    textRezult.setText(x + "/");
-                    textCalculation.setText("");
+                    if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                        x = Float.parseFloat(textCalculation.getText().toString());
+                        textRezult.setText(x + "/");
+                        textCalculation.setText("");
+                    }
                 }
+                else return;
             }
         });
         buttonSqr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!(textRezult.getText().equals(""))){
-                    textRezult.setText("V" + x);
+                if(!(textCalculation.getText().toString().equals(""))) {
+                    if (!(textRezult.getText().equals(""))) {
+                        textRezult.setText("V" + x);
+                        if ((!(textCalculation.getText().equals(""))) && x == 0) {
+                            x = Float.parseFloat(textCalculation.getText().toString());
+                            textRezult.setText("V" + calculator.SqrRoot(x));
+                            x = (float) calculator.SqrRoot(x);
+                            textCalculation.setText("");
+                        }
+                    }
                 }
-                if ((!(textCalculation.getText().equals(""))) && x == 0) {
-                    x = Float.parseFloat(textCalculation.getText().toString());
-                    textRezult.setText("V"+calculator.SqrRoot(x));
-                    x = (float) calculator.SqrRoot(x);
-                    textCalculation.setText("");
-                }
+                else return;
                 }
 
         });
@@ -265,7 +291,13 @@ public class MainActivity extends AppCompatActivity {
         buttonDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textCalculation.append(".");
+                if(!(textCalculation.getText().toString().contains("."))) {
+                    textCalculation.append(".");
+                }
+                else if (textCalculation.getText().toString().contains("")){
+                    return;
+                }
+                else return;
             }
         });
     }}
